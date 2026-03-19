@@ -1,0 +1,15 @@
+###
+
+# @timeout 600
+POST http://localhost:11434/api/generate
+Content-Type: application/json
+
+{
+  "model": "deepseek-r1:1.5b",
+  "prompt": "Tell me the greatest rapper of all time",
+  "stream": false
+}
+
+###
+
+GET http://127.0.0.1:8000
