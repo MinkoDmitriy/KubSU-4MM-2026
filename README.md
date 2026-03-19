@@ -2,7 +2,7 @@
 
 Hello, world!
 
-## Postgres and pgAdmin in Docker
+## To run
 
 ```bash
 docker compose -f postgres.yml up -d
