@@ -2,7 +2,7 @@ import logging
 import sqlite3
 from contextlib import closing
 
-import requests
+import requests  # type: ignore
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
