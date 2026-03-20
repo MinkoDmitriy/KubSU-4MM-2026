@@ -1,7 +1,5 @@
 # KubSU-4MM-2026
 
-Hello, world!
-
 ## Установка браузерного расширения
 
 1. Откройте Google Chrome и перейдите в `chrome://extensions/`.
