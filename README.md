@@ -71,10 +71,20 @@ $ pip freeze > requirements.txt
 
 # OLLAMA
 
+## Запустить контейнер
+
 ```bash
 $ docker compose -f docker-compose.ollama.yml up -d
+```
 
-$ docker exec -it ollama ollama run deepseek-r1:1.5b
+## Скачать модель
 
+```bash
+$ docker exec -it ollama ollama run lfm2.5-thinking:latest
+```
+
+## Остановить контейнер
+
+```bash
 $ docker compose -f docker-compose.ollama.yml down
 ```

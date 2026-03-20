@@ -1,5 +1,35 @@
+<!DOCTYPE html>
 <html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
 <body>
-<h1>Privet, Mir!</h1>
+  <div class="container">
+    <h1>ИИ История сёрфинга</h1>
+
+    <div class="input-section">
+      <textarea
+        id="queryInput"
+        placeholder="Введите запрос для LLM..."
+        rows="4"
+      ></textarea>
+
+      <div class="button-group">
+        <button id="sendButton" class="btn btn-primary">🚀 Отправить запрос</button>
+        <button id="historyButton" class="btn btn-secondary">📊 Анализ истории</button>
+      </div>
+    </div>
+
+    <div id="response" class="response hidden">
+      <div class="response-header">
+        <span id="responseTitle">Ответ:</span>
+        <button id="clearButton" class="btn-clear">✕</button>
+      </div>
+      <div id="responseContent" class="response-content"></div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
 </body>
 </html>

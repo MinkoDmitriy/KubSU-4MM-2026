@@ -98,10 +98,38 @@ def page_view(page_view: PageView):
     return {"status": "ok"}
 
 
-@app.post("/my-chat-gpt")
+@app.post("/request")
 def llm_proxy(req: LlmRequest):
     response = requests.post(
         "http://localhost:11434/api/generate",
-        json={"prompt": req.prompt, "model": "deepseek-r1:1.5b", "stream": False},
+        json={
+            "model": "lfm2.5-thinking:latest",
+            "prompt": req.prompt,
+            "system": "Отвечай на русском и представь, что ты кот!",
+            "temperature": 0.9,
+            "stream": False,
+        },
+    )
+    return response.json().get("response")
+
+
+@app.get("/history")
+def history():
+    with closing(sqlite3.connect(DB_PATH)) as conn:
+        rows = conn.execute("SELECT title FROM page_views ORDER BY id ASC").fetchall()
+        prompt = "\n".join(row[0] for row in rows)
+
+    print(prompt)
+
+    response = requests.post(
+        "http://localhost:11434/api/generate",
+        json={
+            "model": "lfm2.5-thinking:latest",
+            "prompt": "Дай сводку посещенных веб-сайтов на основе их заголовков: "
+            + prompt,
+            "system": "Отвечай на русском кратко и по делу!",
+            "temperature": 0.2,
+            "stream": False,
+        },
     )
     return response.json().get("response")

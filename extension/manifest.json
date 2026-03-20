@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Internet Surfing Summarization",
+  "name": "AI Surfing History",
   "description": "So what were you doing on the internet today?",
   "version": "1.0",
   "action": {
